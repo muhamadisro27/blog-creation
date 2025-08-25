@@ -50,6 +50,10 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
 
   const onSubmit = (values: BlogSchemaType) => {
     console.log(values)
+
+    console.log(currentStep)
+
+    console.log("submit")
   }
 
   const isLoading = form.formState.isValidating
@@ -68,9 +72,7 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
         onSubmit,
       }}
     >
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>{children}</form>
-      </Form>
+      {children}
     </FormWizzardContext.Provider>
   )
 }

@@ -16,7 +16,7 @@ const Navbar = () => {
       className="w-full flex flex-col justify-center items-center border-b shadow-sm"
     >
       <Container className="flex !p-6 justify-between items-center">
-        <Typography as="h1" className="lg:text-2xl text-lg font-semibold">
+        <Typography as="h1" className="xl:text-xl text-lg font-semibold">
           <Link href="/">Blog Creation</Link>
         </Typography>
 

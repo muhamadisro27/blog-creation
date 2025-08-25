@@ -10,6 +10,7 @@ import Typography from "@/components/atoms/typography"
 import { FC } from "react"
 import { BlogType } from "@/types/blog"
 import Box from "@/components/atoms/box"
+import { formatDateTime } from "@/utils/date"
 
 type BlogProps = {
   blog: BlogType
@@ -26,7 +27,7 @@ const BlogCard: FC<BlogProps> = ({ blog }) => {
           <Box className="flex justify-between">
             <Typography
               as="span"
-              className="text-xs pt-4 text-gray-800 dark:text-gray-400"
+              className="text-xs text-gray-800 dark:text-gray-400"
             >
               {blog.author}
             </Typography>
@@ -34,7 +35,7 @@ const BlogCard: FC<BlogProps> = ({ blog }) => {
               as="span"
               className="text-xs text-gray-800 dark:text-gray-400"
             >
-              {blog.publishedAt}
+              {blog.publishedAt ? formatDateTime(blog.publishedAt) : ""}
             </Typography>
           </Box>
         </CardHeader>

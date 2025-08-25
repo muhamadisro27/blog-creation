@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Container from "@/components/molecules/container"
 import WizzardForm from "@/components/organisms/forms/wizzard-form"
 import { FormWizzardProvider } from "@/providers/form-wizzard"

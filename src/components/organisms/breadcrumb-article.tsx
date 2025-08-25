@@ -7,15 +7,15 @@ import {
   BreadcrumbSeparator,
 } from "@/components/molecules/breadcrumb"
 import { ChevronRightIcon } from "lucide-react"
-import { FC } from "react"
+import { ComponentPropsWithoutRef, FC } from "react"
 
 type BreadcrumbArticleProps = {
   lastItem?: string
-}
+} & ComponentPropsWithoutRef<typeof Breadcrumb>
 
-const BreadcrumbArticle: FC<BreadcrumbArticleProps> = ({ lastItem }) => {
+const BreadcrumbArticle: FC<BreadcrumbArticleProps> = ({ lastItem, ...props }) => {
   return (
-    <Breadcrumb>
+    <Breadcrumb {...props}>
       <BreadcrumbList>
         <BreadcrumbItem className="text-gray-800 dark:text-gray-300 ">
           <BreadcrumbLink asChild>

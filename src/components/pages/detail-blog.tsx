@@ -10,6 +10,7 @@ import Link from "next/link"
 import BreadcrumbArticle from "@/components/organisms/breadcrumb-article"
 import Typography from "@/components/atoms/typography"
 import { Card, CardContent, CardHeader } from "@/components/molecules/card"
+import { formatDateTime } from "@/utils/date"
 
 const DetailBlog = () => {
   const pathname = usePathname()
@@ -24,7 +25,7 @@ const DetailBlog = () => {
         <Button variant={"link"} asChild>
           <Link href={"/"}>
             <ChevronLeft />
-            Back
+            Back To blog page
           </Link>
         </Button>
 
@@ -47,7 +48,7 @@ const DetailBlog = () => {
               as="span"
               className="text-sm text-gray-800 dark:text-gray-400"
             >
-              1725859200000
+              {formatDateTime(1725859200000)}
             </Typography>
           </Box>
         </CardHeader>

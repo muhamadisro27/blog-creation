@@ -22,9 +22,18 @@ const Home = () => {
         </Button>
       </Box>
 
-      <Box className="mt-6 grid gap-4 grid-cols-3">
+      <Box className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {blogs
-          // .sort((a, b) => a.publishedAt - b.publishedAt)
+          .filter((blog) => blog.publishedAt != null)
+          .sort((a, b) => {
+            if (!a.publishedAt) return 1
+            if (!b.publishedAt) return -1
+
+            return (
+              new Date(a.publishedAt).getTime() -
+              new Date(b.publishedAt).getTime()
+            )
+          })
           .slice(0, 3)
           .map((blog) => (
             <BlogCard blog={blog} key={blog.id} />

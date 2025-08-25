@@ -4,20 +4,21 @@ import Box from "@/components/atoms/box"
 import { Button } from "@/components/atoms/button"
 import Link from "next/link"
 import { ChevronLeft, FilePlus2 } from "lucide-react"
+import BlogList from "@/components/organisms/blog-list"
 
 const Blog = () => {
   return (
-    <Container id="blog" as="section" className="mt-10 w-full space-y-5">
+    <Container id="blog" className="mt-10 w-full space-y-5">
       <Box className="w-full flex justify-between items-center">
         <Button variant={"link"} asChild>
           <Link href={"/"}>
             <ChevronLeft />
-            Back
+            Back to home
           </Link>
         </Button>
       </Box>
 
-      <Box className="w-full flex justify-between">
+      <Box as="section" className="w-full flex justify-between">
         <Typography as="h3" className="text-xl">
           Explore Blogs
         </Typography>
@@ -27,6 +28,10 @@ const Blog = () => {
             <FilePlus2 />
           </Link>
         </Button>
+      </Box>
+
+      <Box as="section" className="space-y-2">
+        <BlogList />
       </Box>
     </Container>
   )

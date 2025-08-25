@@ -1,5 +1,16 @@
 import { BlogType } from "@/types/blog"
-import { StepItemMap } from "@/types/common"
+import { NavLinkType, StepItemMap } from "@/types/common"
+
+export const links: NavLinkType[] = [
+  {
+    label: "Home",
+    url: "/",
+  },
+  {
+    label: "Blog",
+    url: "/blog",
+  },
+]
 
 export const blogs: BlogType[] = [
   {

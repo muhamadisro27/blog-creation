@@ -11,15 +11,18 @@ import Step4 from "./step4"
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react"
 import Link from "next/link"
 import BreadcrumbArticle from "@/components/organisms/breadcrumb-article"
+import { Form } from "@/components/atoms/forms"
+import { FormEvent } from "react"
 
 const WizzardForm = () => {
   const {
     steps,
-    setSteps,
     form,
     currentStep,
     isDisabled,
     isLoading,
+    setSteps,
+    onSubmit,
     setCurrentStep,
   } = useFormWizzard()
 
@@ -65,17 +68,27 @@ const WizzardForm = () => {
     }))
   }
 
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    console.log(currentStep < stepsItems.length - 1)
+
+    console.log(currentStep, stepsItems.length -1);
+
+    console.log("submit")
+  }
+
   return (
     <Box className="flex flex-col space-y-10 relative">
-      <Box className="w-full flex justify-between items-center">
-        <Button variant={"link"} asChild>
+      <Box className="w-full flex lg:flex-row flex-col space-y-2 justify-between items-center">
+        <Button className="self-start p-0" variant={"link"} asChild>
           <Link href={"/blog"}>
             <ChevronLeft />
-            Back
+            Back To blog page
           </Link>
         </Button>
 
-        <BreadcrumbArticle lastItem={'Create'} />
+        <BreadcrumbArticle className="self-start" lastItem={"Create"} />
       </Box>
 
       {isLoading && (
@@ -84,46 +97,54 @@ const WizzardForm = () => {
 
       <Stepper />
 
-      {stepsItems[currentStep].step === 1 && <Step1 />}
-      {stepsItems[currentStep].step === 2 && <Step2 />}
-      {stepsItems[currentStep].step === 3 && <Step3 />}
-      {stepsItems[currentStep].step === 4 && <Step4 />}
+      <Form {...form}>
+        <form onSubmit={handleFormSubmit}>
+          <Box className="space-y-8 flex flex-col relative">
+            {stepsItems[currentStep].step === 1 && <Step1 />}
+            {stepsItems[currentStep].step === 2 && <Step2 />}
+            {stepsItems[currentStep].step === 3 && <Step3 />}
+            {stepsItems[currentStep].step === 4 && <Step4 />}
+          </Box>
 
-      <Box
-        className={clsx(
-          "flex mt-4 w-full",
-          stepsItems[currentStep].step === 1 ? "justify-end" : "justify-between"
-        )}
-      >
-        {currentStep > 0 && (
-          <Button
-            disabled={isDisabled}
-            className="cursor-pointer"
-            type="button"
-            onClick={prevStep}
+          <Box
+            className={clsx(
+              "flex mt-4 w-full",
+              stepsItems[currentStep].step === 1
+                ? "justify-end"
+                : "justify-between"
+            )}
           >
-            Back
-          </Button>
-        )}
-        {currentStep < stepsItems.length - 1 ? (
-          <Button
-            disabled={isDisabled}
-            className="cursor-pointer"
-            type="button"
-            onClick={nextStep}
-          >
-            Next
-          </Button>
-        ) : (
-          <Button
-            disabled={isDisabled}
-            className="cursor-pointer"
-            type="submit"
-          >
-            Submit
-          </Button>
-        )}
-      </Box>
+            {currentStep > 0 && (
+              <Button
+                disabled={isDisabled}
+                className="cursor-pointer"
+                type="button"
+                onClick={prevStep}
+              >
+                Back
+              </Button>
+            )}
+            {currentStep < stepsItems.length - 1 ? (
+              <Button
+                disabled={isDisabled}
+                className="cursor-pointer"
+                type="button"
+                onClick={nextStep}
+              >
+                Next
+              </Button>
+            ) : (
+              <Button
+                disabled={isDisabled}
+                className="cursor-pointer"
+                type="submit"
+              >
+                Submit
+              </Button>
+            )}
+          </Box>
+        </form>
+      </Form>
     </Box>
   )
 }

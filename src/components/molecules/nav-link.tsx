@@ -1,20 +1,9 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { NavLinkType } from "@/types/common"
+import { links } from "@/utils/constant"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-
-const links: NavLinkType[] = [
-  {
-    label: "Home",
-    url: "/",
-  },
-  {
-    label: "Blog",
-    url: "/blog",
-  },
-]
 
 const NavLink = () => {
   const pathname = usePathname()
