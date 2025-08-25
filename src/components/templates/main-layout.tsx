@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from "react"
 import Navbar from "@/components/organisms/navbar"
+import Footer from "@/components/organisms/footer"
 
 type MainLayoutProps = {
   children: ReactNode
@@ -7,10 +8,14 @@ type MainLayoutProps = {
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10">
+    <main className="min-h-svh w-full flex flex-col items-center">
       <Navbar />
-      {children}
-    </div>
+
+      <div className="flex flex-col w-full max-w-7xl justify-between h-[calc(100dvh-90px)]">
+        {children}
+        <Footer />
+      </div>
+    </main>
   )
 }
 

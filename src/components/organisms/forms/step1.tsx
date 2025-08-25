@@ -1,0 +1,97 @@
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/atoms/forms"
+import FormRequired from "@/components/molecules/form-required"
+import { Input } from "@/components/ui/input"
+import { useDebounce } from "@/hooks/use-debounce"
+import { BlogSchemaType } from "@/schemas/blog-schema"
+import { slugify } from "@/utils/string"
+import { useEffect } from "react"
+import { useFormContext } from "react-hook-form"
+
+const Step1 = () => {
+  const { control, watch, setValue } = useFormContext<BlogSchemaType>()
+
+  const title = watch("title")
+  const debounceTitle = useDebounce(title)
+
+  useEffect(() => {
+    setValue("slug", slugify(debounceTitle))
+  }, [debounceTitle, setValue])
+
+  return (
+    <>
+      <FormField
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              Title
+              <FormRequired />
+            </FormLabel>
+            <div className="relative w-full space-y-2">
+              <FormControl>
+                <Input
+                  className="text-xs placeholder:text-[#78829D]"
+                  placeholder="Enter title blog"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </div>
+          </FormItem>
+        )}
+        control={control}
+        name="title"
+      />
+
+      <FormField
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Slug</FormLabel>
+            <div className="relative w-full space-y-2">
+              <FormControl>
+                <Input
+                  disabled
+                  className="text-xs placeholder:text-[#78829D]"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </div>
+          </FormItem>
+        )}
+        control={control}
+        name="slug"
+      />
+
+      <FormField
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              Author
+              <FormRequired />
+            </FormLabel>
+            <div className="relative w-full space-y-2">
+              <FormControl>
+                <Input
+                  className="text-xs placeholder:text-[#78829D]"
+                  placeholder="Enter author blog"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </div>
+          </FormItem>
+        )}
+        control={control}
+        name="author"
+      />
+    </>
+  )
+}
+
+export default Step1

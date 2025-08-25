@@ -1,0 +1,5 @@
+export { default as Stepper } from "./stepper"
+export { default as StepperDivider } from "./stepper-divider"
+export { default as StepperTitle } from "./stepper-title"
+export { default as StepperDescription } from "./stepper-description"
+export { default as StepperIndicator } from "./stepper-indicator"
