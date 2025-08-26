@@ -10,6 +10,7 @@ import Typography from "@/components/atoms/typography"
 import { Card, CardContent, CardHeader } from "@/components/molecules/card"
 import { formatDateTime } from "@/utils/date"
 import { useBlog } from "@/services/queries/blog"
+import { Badge } from "../molecules/badge"
 
 type DetailBlogProps = {
   slug: string
@@ -35,6 +36,7 @@ const DetailBlog: FC<DetailBlogProps> = ({ slug }) => {
         <CardHeader>
           <Typography className="text-2xl">{blog?.title}</Typography>
           <Box className="flex flex-col space-y-2 mt-4">
+            <Badge>{blog?.category}</Badge>
             <Typography
               as="span"
               className="text-sm text-gray-800 dark:text-gray-400"

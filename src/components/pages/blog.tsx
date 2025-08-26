@@ -13,7 +13,7 @@ const Blog = () => {
   const { data: blogs } = useBlogs()
 
   return (
-    <Container id="blog" className="mt-10 w-full space-y-5">
+    <Container id="blog" className="mt-2 w-full space-y-5">
       <Box className="w-full flex justify-between items-center">
         <Button variant={"link"} asChild>
           <Link href={"/"}>

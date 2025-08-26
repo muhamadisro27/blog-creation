@@ -31,9 +31,9 @@ const Stepper = () => {
                 isCompleted={item.isCompleted}
               />
 
-              {isLastStep && !isMobile && (
+              {/* {isLastStep && !isMobile && (
                 <StepperDivider isCompleted={item.isCompleted} />
-              )}
+              )} */}
             </Box>
 
             <Box className="flex flex-col items-start md:items-center">

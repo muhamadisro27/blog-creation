@@ -1,48 +1,114 @@
 {
   "blogs": [
     {
-      "id": "2ad1",
-      "title": "Scaling a Business in Emerging Markets",
-      "slug": "scaling-a-business-in-emerging-markets",
-      "content": "Emerging markets bring unique challenges—here’s how to grow while staying sustainable.",
-      "author": "Alex Tan",
-      "category": "business",
-      "summary": "Emerging markets bring unique challenges—here’s how to grow while staying sustainable.",
-      "createdAt": 1756189700108,
-      "publishedAt": 1756189700108
-    },
-    {
-      "id": "9055",
-      "title": "Test New",
-      "slug": "test-new",
-      "content": "Test",
-      "author": "Test Author",
-      "category": "tech",
-      "summary": "asdasdasd",
-      "createdAt": 1756190782074,
-      "publishedAt": 1756190782074
-    },
-    {
-      "id": "58ab",
-      "title": "AI Tools Every Developer Should Try in 2025",
-      "slug": "ai-tools-every-developer-should-try-in-2025",
-      "content": "From code generation to debugging assistants, AI tools are now essential for modern developers.",
+      "id": "1",
+      "title": "Exploring the Future of Web3 Development",
+      "slug": "exploring-the-future-of-web3-development",
       "author": "Muhamad Isro",
+      "summary": "Web3 is reshaping the internet with decentralized apps. Here's what frontend engineers should prepare for.",
+      "content": "Web3 is reshaping the internet with decentralized apps. Here's what frontend engineers should prepare for.",
       "category": "tech",
-      "summary": "From code generation to debugging assistants, AI tools are now essential for modern developers.",
-      "createdAt": 1756191121181,
-      "publishedAt": 1756191121181
+      "createdAt": 1724563200000,
+      "publishedAt": 1724649600000
     },
     {
-      "id": "325e",
+      "id": "2",
+      "title": "10 Simple Habits to Improve Your Daily Life",
+      "slug": "10-simple-habits-to-improve-your-daily-life",
+      "author": "Jane Doe",
+      "summary": "Small lifestyle changes can compound into massive results over time. Let's start with these ten.",
+      "content": "Small lifestyle changes can compound into massive results over time. Let's start with these ten.",
+      "category": "lifestyle",
+      "createdAt": 1724736000000,
+      "publishedAt": 1724736000000
+    },
+    {
+      "id": "3",
+      "title": "Why Every Startup Should Care About UX",
+      "slug": "why-every-startup-should-care-about-ux",
+      "author": "Alex Tan",
+      "summary": "User experience is more than design—it's about trust, retention, and business growth.",
+      "content": "User experience is more than design—it's about trust, retention, and business growth.",
+      "category": "business",
+      "createdAt": 1724822400000,
+      "publishedAt": 1724908800000
+    },
+    {
+      "id": "4",
+      "title": "The Rise of TypeScript in Frontend Engineering",
+      "slug": "the-rise-of-typescript-in-frontend-engineering",
+      "author": "Muhamad Isro",
+      "summary": "TypeScript has become the standard for scalable frontend projects. Here's why it's worth adopting.",
+      "content": "TypeScript has become the standard for scalable frontend projects. Here's why it's worth adopting.",
+      "category": "tech",
+      "createdAt": 1724908800000,
+      "publishedAt": 1724995200000
+    },
+    {
+      "id": "5",
       "title": "Mindfulness in the Digital Age",
       "slug": "mindfulness-in-the-digital-age",
-      "content": "With constant notifications and digital noise, mindfulness is becoming a necessity, not a luxury.",
       "author": "Sarah Lee",
-      "category": "business",
       "summary": "With constant notifications and digital noise, mindfulness is becoming a necessity, not a luxury.",
-      "createdAt": 1756193752604,
-      "publishedAt": 1756193752604
+      "content": "With constant notifications and digital noise, mindfulness is becoming a necessity, not a luxury.",
+      "category": "lifestyle",
+      "createdAt": 1725081600000,
+      "publishedAt": 1725168000000
+    },
+    {
+      "id": "6",
+      "title": "From Employee to Entrepreneur: The Transition",
+      "slug": "from-employee-to-entrepreneur-the-transition",
+      "author": "David Kim",
+      "summary": "Making the leap from employee to business owner is tough. Here are the steps to prepare yourself.",
+      "content": "Making the leap from employee to business owner is tough. Here are the steps to prepare yourself.",
+      "category": "business",
+      "createdAt": 1725254400000,
+      "publishedAt": 1725254400000
+    },
+    {
+      "id": "7",
+      "title": "Understanding Blockchain Beyond Bitcoin",
+      "slug": "understanding-blockchain-beyond-bitcoin",
+      "author": "Muhamad Isro",
+      "summary": "Blockchain is more than crypto—it powers decentralized identity, supply chains, and more.",
+      "content": "Blockchain is more than crypto—it powers decentralized identity, supply chains, and more.",
+      "category": "tech",
+      "createdAt": 1725427200000,
+      "publishedAt": 1725513600000
+    },
+    {
+      "id": "8",
+      "title": "Healthy Work-Life Balance for Remote Workers",
+      "slug": "healthy-work-life-balance-for-remote-workers",
+      "author": "Jane Doe",
+      "summary": "Remote work offers freedom, but without discipline, burnout is inevitable. Here's how to balance it.",
+      "content": "Remote work offers freedom, but without discipline, burnout is inevitable. Here's how to balance it.",
+      "category": "lifestyle",
+      "createdAt": 1725600000000,
+      "publishedAt": 1725686400000
+    },
+    {
+      "id": "9",
+      "title": "Scaling a Business in Emerging Markets",
+      "slug": "scaling-a-business-in-emerging-markets",
+      "author": "Alex Tan",
+      "summary": "Emerging markets bring unique challenges—here’s how to grow while staying sustainable.",
+      "content": "Emerging markets bring unique challenges—here’s how to grow while staying sustainable.",
+      "category": "business",
+      "createdAt": 1725772800000,
+      "publishedAt": 1725859200000
+    },
+    {
+      "id": "10",
+      "title": "AI Tools Every Developer Should Try in 2025",
+      "slug": "ai-tools-every-developer-should-try-in-2025",
+      "author": "Muhamad Isro",
+      "summary": "From code generation to debugging assistants, AI tools are now essential for modern developers.",
+      "content": "From code generation to debugging assistants, AI tools are now essential for modern developers.",
+      "category": "tech",
+      "createdAt": 1725945600000,
+      "publishedAt": 1725945600000
     }
   ]
 }

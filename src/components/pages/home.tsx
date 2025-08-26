@@ -17,7 +17,7 @@ const Home = () => {
   }
 
   return (
-    <Container id="article-highlight" as="section" className="mt-10 w-full">
+    <Container id="article-highlight" as="section" className="mt-2 w-full">
       <Box className="flex justify-between">
         <Typography as="h3" className="text-xl">
           Highlight Blogs
@@ -37,8 +37,8 @@ const Home = () => {
             if (!b.publishedAt) return -1
 
             return (
-              new Date(a.publishedAt).getTime() -
-              new Date(b.publishedAt).getTime()
+              new Date(b.publishedAt).getTime() -
+              new Date(a.publishedAt).getTime()
             )
           })
           .slice(0, 3)

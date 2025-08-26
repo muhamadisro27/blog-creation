@@ -60,11 +60,18 @@ const Step2 = () => {
                   onValueChange={field.onChange}
                 >
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select category" />
+                    <SelectValue
+                      className="text-xs"
+                      placeholder="Select category"
+                    />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.values(blog_categories).map((category) => (
-                      <SelectItem key={category.value} value={category.value}>
+                      <SelectItem
+                        className="text-sm"
+                        key={category.value}
+                        value={category.value}
+                      >
                         {category.label}
                       </SelectItem>
                     ))}

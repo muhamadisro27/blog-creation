@@ -5,7 +5,7 @@ import { FormWizzardProvider } from "@/providers/form-wizzard"
 
 const CreateBlog = () => {
   return (
-    <Container id="blog" as="section" className="lg:mt-10 mt-4 w-full">
+    <Container id="blog" as="section" className="mt-2 w-full">
       <FormWizzardProvider>
         <WizzardForm />
       </FormWizzardProvider>

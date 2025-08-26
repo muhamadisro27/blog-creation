@@ -19,8 +19,8 @@ const BlogList: FC<BlogProps> = ({ blogs }) => {
             if (!b.publishedAt) return -1
 
             return (
-              new Date(a.publishedAt).getTime() -
-              new Date(b.publishedAt).getTime()
+              new Date(b.publishedAt).getTime() -
+              new Date(a.publishedAt).getTime()
             )
           })
           .map((blog) => (
