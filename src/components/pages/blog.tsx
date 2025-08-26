@@ -8,6 +8,7 @@ import Link from "next/link"
 import { ChevronLeft, FilePlus2 } from "lucide-react"
 import BlogList from "@/components/organisms/blog-list"
 import { useBlogs } from "@/services/queries/blog"
+import BlogNotFound from "@/components/molecules/not-found/blogs"
 
 const Blog = () => {
   const { data: blogs } = useBlogs()
@@ -39,7 +40,11 @@ const Blog = () => {
       </Box>
 
       <Box as="section" className="space-y-2">
-        <BlogList blogs={blogs ?? []} />
+        {blogs && blogs?.length > 0 ? (
+          <BlogList blogs={blogs} />
+        ) : (
+          <BlogNotFound />
+        )}
       </Box>
     </Container>
   )
