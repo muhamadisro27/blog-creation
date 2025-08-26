@@ -34,12 +34,12 @@ const Step4 = () => {
             <CardContent className="space-y-4">
               {Object.entries(item.data).map(([key, value]) => (
                 <Box key={key} className="space-y-1 grid grid-cols-2">
-                  <Typography className="text-sm text-muted-foreground capitalize">
+                  <Typography className="text-sm  capitalize">
                     {key}
                   </Typography>
                   <Typography className="text-sm break-words">
                     {value || (
-                      <span className="italic text-muted-foreground">—</span>
+                      <span className="italic ">—</span>
                     )}
                   </Typography>
                 </Box>

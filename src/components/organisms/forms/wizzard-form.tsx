@@ -69,15 +69,15 @@ const WizzardForm = () => {
 
   return (
     <Box className="flex flex-col space-y-10 relative">
-      <Box className="w-full flex lg:flex-row flex-col space-y-2 justify-between items-center">
-        <Button className="self-start p-0" variant={"link"} asChild>
+      <Box className="w-full flex md:flex-row flex-col space-y-2 justify-between items-center">
+        <Button variant={"link"} asChild>
           <Link href={"/blog"}>
             <ChevronLeft />
-            Back To blog page
+            Back to blog page
           </Link>
         </Button>
 
-        <BreadcrumbArticle className="self-start" lastItem={"Create"} />
+        <BreadcrumbArticle lastItem={"Create"} />
       </Box>
 
       {isLoading && (

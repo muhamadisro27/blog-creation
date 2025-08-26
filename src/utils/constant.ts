@@ -1,5 +1,6 @@
 import { BlogCategoryMap, BlogType } from "@/types/blog"
 import { NavLinkType, StepItemMap } from "@/types/common"
+import { ClipboardList, FileText, ClipboardCheck, FileStack } from "lucide-react"
 
 export const links: NavLinkType[] = [
   {
@@ -132,11 +133,13 @@ export const steps: StepItemMap = {
     description: "Enter basic blog info title and author",
     isCompleted: false,
     isCurrentStep: true,
+    icon: FileText,
     fields: ["title", "slug", "author"],
   },
   2: {
     step: 2,
     title: "Summary & Category",
+    icon: FileStack,
     description: "Add a short summary and choose a category",
     isCompleted: false,
     isCurrentStep: false,
@@ -146,6 +149,7 @@ export const steps: StepItemMap = {
     step: 3,
     title: "Content",
     description: "Write your main blog content",
+    icon: ClipboardList,
     isCompleted: false,
     isCurrentStep: false,
     fields: ["content"],
@@ -153,6 +157,7 @@ export const steps: StepItemMap = {
   4: {
     step: 4,
     title: "Review & Submit",
+    icon: ClipboardCheck,
     description: "Check all details and submit your blog",
     isCompleted: false,
     isCurrentStep: false,

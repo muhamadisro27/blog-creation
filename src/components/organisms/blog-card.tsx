@@ -24,7 +24,7 @@ const BlogCard: FC<BlogProps> = ({ blog }) => {
           <Typography className="min-h-[48px] group-hover:underline" as="h5">
             {blog.title}
           </Typography>
-          <Box className="flex justify-between">
+          <Box className="flex xl:flex-row flex-col space-y-1 justify-between">
             <Typography
               as="span"
               className="text-xs text-gray-800 dark:text-gray-400"

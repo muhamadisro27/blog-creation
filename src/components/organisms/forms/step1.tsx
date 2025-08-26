@@ -5,6 +5,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/atoms/forms"
+import Typography from "@/components/atoms/typography"
 import FormRequired from "@/components/molecules/form-required"
 import { Input } from "@/components/ui/input"
 import { useDebounce } from "@/hooks/use-debounce"
@@ -60,6 +61,9 @@ const Step1 = () => {
                   {...field}
                 />
               </FormControl>
+              <Typography className="text-xs dark:text-gray-500">
+                Auto-generated from title
+              </Typography>
               <FormMessage />
             </div>
           </FormItem>

@@ -35,7 +35,7 @@ const BreadcrumbArticle: FC<BreadcrumbArticleProps> = ({ lastItem, ...props }) =
             <BreadcrumbSeparator>
               <ChevronRightIcon />
             </BreadcrumbSeparator>
-            <BreadcrumbItem className="text-gray-400 dark:text-gray-400 truncate">{lastItem}</BreadcrumbItem>
+            <BreadcrumbItem className="text-gray-400 dark:text-gray-400 line-clamp-1">{lastItem}</BreadcrumbItem>
           </>
         )}
       </BreadcrumbList>

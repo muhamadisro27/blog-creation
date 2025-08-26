@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <Container id="article-highlight" as="section" className="mt-2 w-full">
-      <Box className="flex justify-between">
+      <Box className="flex flex-col md:flex-row justify-between items-center space-y-4">
         <Typography as="h3" className="text-xl">
           Highlight Blogs
         </Typography>

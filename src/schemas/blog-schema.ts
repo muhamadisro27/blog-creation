@@ -10,9 +10,21 @@ export const blogSchema = z.object({
     .string()
     .min(3, { message: "Author minimum is 3 characters." })
     .max(50, { message: "Author maximum is 50 characters." }),
-  summary: z.string(),
-  content: z.string(),
-  category: z.string(),
+  summary: z
+    .string()
+    .min(3, { message: "Summary minimum is 3 characters." })
+    .max(50, { message: "Summary maximum is 50 characters." }),
+  content: z
+    .string()
+    .min(3, { message: "Content minimum is 3 characters." })
+    .max(50, { message: "Content maximum is 50 characters." }),
+  category: z
+    .string({
+      message: "Category is required",
+    })
+    .refine((data) => data !== "", {
+      message: "Category is required",
+    }),
   createdAt: z.string().optional(),
   publishedAt: z.string().optional(),
 })

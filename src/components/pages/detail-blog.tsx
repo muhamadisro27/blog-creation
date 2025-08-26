@@ -19,13 +19,36 @@ type DetailBlogProps = {
 const DetailBlog: FC<DetailBlogProps> = ({ slug }) => {
   const { data: blog } = useBlog(slug)
 
+  if (!blog) {
+    return (
+      <Container>
+        <Box className="w-full flex justify-between items-center">
+          <Button variant={"link"} asChild>
+            <Link href={"/blog"}>
+              <ChevronLeft />
+              Back to blog page
+            </Link>
+          </Button>
+
+          <BreadcrumbArticle lastItem={slug} />
+        </Box>
+
+        <Box className="w-full m-auto min-h-100 flex flex-col justify-center items-center">
+          <Typography className="text-center max-w-xl">
+            Blog with keyword &quot;{slug}&quot; is not found.
+          </Typography>
+        </Box>
+      </Container>
+    )
+  }
+
   return (
     <Container>
-      <Box className="w-full flex justify-between items-center">
+      <Box className="w-full flex md:flex-row flex-col justify-between items-center space-y-2">
         <Button variant={"link"} asChild>
           <Link href={"/blog"}>
             <ChevronLeft />
-            Back To blog page
+            Back to blog page
           </Link>
         </Button>
 
@@ -34,25 +57,25 @@ const DetailBlog: FC<DetailBlogProps> = ({ slug }) => {
 
       <Card className="transition-all group-hover:shadow-md mt-7 flex flex-col">
         <CardHeader>
-          <Typography className="text-2xl">{blog?.title}</Typography>
+          <Typography className="md:text-2xl text-lg">{blog?.title}</Typography>
           <Box className="flex flex-col space-y-2 mt-4">
             <Badge>{blog?.category}</Badge>
             <Typography
               as="span"
-              className="text-sm text-gray-800 dark:text-gray-400"
+              className="md:text-sm text-xs text-gray-800 dark:text-gray-400"
             >
               {blog?.author}
             </Typography>
             <Typography
               as="span"
-              className="text-sm text-gray-800 dark:text-gray-400"
+              className="md:text-sm text-xs text-gray-800 dark:text-gray-400"
             >
               {blog?.publishedAt && formatDateTime(blog?.publishedAt)}
             </Typography>
           </Box>
         </CardHeader>
         <CardContent>
-          <Typography className="text-justify text-sm">
+          <Typography className="text-justify text-xs md:text-sm leading-7">
             {blog?.content}
           </Typography>
         </CardContent>

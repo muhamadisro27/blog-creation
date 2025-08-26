@@ -22,6 +22,7 @@ const Stepper = () => {
               <StepperIndicator
                 isActive={item.isCurrentStep}
                 isCompleted={item.isCompleted}
+                icon={item.icon}
               />
             </Box>
 
