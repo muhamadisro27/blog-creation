@@ -7,7 +7,7 @@ import {
 } from "@/components/atoms/forms"
 import Typography from "@/components/atoms/typography"
 import FormRequired from "@/components/molecules/form-required"
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/molecules/input"
 import { useDebounce } from "@/hooks/use-debounce"
 import { BlogSchemaType } from "@/schemas/blog-schema"
 import { slugify } from "@/utils/string"

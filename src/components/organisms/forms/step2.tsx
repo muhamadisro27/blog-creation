@@ -12,8 +12,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
+} from "@/components/molecules/select"
+import { Textarea } from "@/components/molecules/textarea"
 import { BlogSchemaType } from "@/schemas/blog-schema"
 import { blog_categories } from "@/utils/constant"
 import { useFormContext } from "react-hook-form"

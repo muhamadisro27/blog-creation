@@ -6,7 +6,7 @@ import {
   FormMessage,
 } from "@/components/atoms/forms"
 import FormRequired from "@/components/molecules/form-required"
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from "@/components/molecules/textarea"
 import { BlogSchemaType } from "@/schemas/blog-schema"
 import React from "react"
 import { useFormContext } from "react-hook-form"
