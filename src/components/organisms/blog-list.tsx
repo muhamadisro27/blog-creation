@@ -1,6 +1,5 @@
 "use client"
 import Box from "@/components/atoms/box"
-import { Input } from "@/components/ui/input"
 import BlogCard from "./blog-card"
 import { BlogType } from "@/types/blog"
 import { FC } from "react"
