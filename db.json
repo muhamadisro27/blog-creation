@@ -1,0 +1,48 @@
+{
+  "blogs": [
+    {
+      "id": "2ad1",
+      "title": "Scaling a Business in Emerging Markets",
+      "slug": "scaling-a-business-in-emerging-markets",
+      "content": "Emerging markets bring unique challenges—here’s how to grow while staying sustainable.",
+      "author": "Alex Tan",
+      "category": "business",
+      "summary": "Emerging markets bring unique challenges—here’s how to grow while staying sustainable.",
+      "createdAt": 1756189700108,
+      "publishedAt": 1756189700108
+    },
+    {
+      "id": "9055",
+      "title": "Test New",
+      "slug": "test-new",
+      "content": "Test",
+      "author": "Test Author",
+      "category": "tech",
+      "summary": "asdasdasd",
+      "createdAt": 1756190782074,
+      "publishedAt": 1756190782074
+    },
+    {
+      "id": "58ab",
+      "title": "AI Tools Every Developer Should Try in 2025",
+      "slug": "ai-tools-every-developer-should-try-in-2025",
+      "content": "From code generation to debugging assistants, AI tools are now essential for modern developers.",
+      "author": "Muhamad Isro",
+      "category": "tech",
+      "summary": "From code generation to debugging assistants, AI tools are now essential for modern developers.",
+      "createdAt": 1756191121181,
+      "publishedAt": 1756191121181
+    },
+    {
+      "id": "325e",
+      "title": "Mindfulness in the Digital Age",
+      "slug": "mindfulness-in-the-digital-age",
+      "content": "With constant notifications and digital noise, mindfulness is becoming a necessity, not a luxury.",
+      "author": "Sarah Lee",
+      "category": "business",
+      "summary": "With constant notifications and digital noise, mindfulness is becoming a necessity, not a luxury.",
+      "createdAt": 1756193752604,
+      "publishedAt": 1756193752604
+    }
+  ]
+}

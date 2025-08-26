@@ -40,8 +40,8 @@ const BlogCard: FC<BlogProps> = ({ blog }) => {
           </Box>
         </CardHeader>
         <CardContent>
-          <Typography className="dark:text-gray-400 text-gray-800 text-sm leading-6.5 line-clamp-2 text-justify">
-            {blog.excerpt}
+          <Typography className="dark:text-gray-400 min-h-[52px] text-gray-800 text-sm leading-6.5 line-clamp-2 text-justify">
+            {blog.summary}
           </Typography>
         </CardContent>
 

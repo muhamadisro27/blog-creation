@@ -1,15 +1,33 @@
 export interface BlogType {
-  id: number
+  id: string
   title: string
   slug: string
   author: string
-  excerpt: string
+  summary: string
   content?: string
   category: BlogCategory
-  status: BlogStatus
+  createdAt: number
+  publishedAt: number | null
+}
+
+export type BlogCategoryMap = {
+  [K in BlogCategory]: {
+    label: string
+    value: BlogCategory
+  }
+}
+
+export type BlogRequestBody = {
+  title: string
+  slug: string
+  author: string
+  summary: string
+  content: string
+  category: BlogCategory
   createdAt: number
   publishedAt: number | null
 }
 
 export type BlogCategory = "tech" | "lifestyle" | "business"
-export type BlogStatus = "draft" | "published"
+
+export type BlogData = Record<string, string | number | null | undefined>

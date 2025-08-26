@@ -10,10 +10,9 @@ export const blogSchema = z.object({
     .string()
     .min(3, { message: "Author minimum is 3 characters." })
     .max(50, { message: "Author maximum is 50 characters." }),
-  excerpt: z.string(),
+  summary: z.string(),
   content: z.string(),
   category: z.string(),
-  status: z.string(),
   createdAt: z.string().optional(),
   publishedAt: z.string().optional(),
 })
@@ -24,8 +23,7 @@ export const defaultValues: BlogSchemaType = {
   title: "",
   slug: "",
   author: "",
-  excerpt: "",
+  summary: "",
   content: "",
   category: "",
-  status: "",
 }

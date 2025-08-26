@@ -12,7 +12,6 @@ import { ChevronLeft, LoaderCircleIcon } from "lucide-react"
 import Link from "next/link"
 import BreadcrumbArticle from "@/components/organisms/breadcrumb-article"
 import { Form } from "@/components/atoms/forms"
-import { FormEvent } from "react"
 
 const WizzardForm = () => {
   const {
@@ -21,8 +20,8 @@ const WizzardForm = () => {
     currentStep,
     isDisabled,
     isLoading,
-    setSteps,
     onSubmit,
+    setSteps,
     setCurrentStep,
   } = useFormWizzard()
 
@@ -68,16 +67,6 @@ const WizzardForm = () => {
     }))
   }
 
-  const handleFormSubmit = (e: FormEvent) => {
-    e.preventDefault()
-
-    console.log(currentStep < stepsItems.length - 1)
-
-    console.log(currentStep, stepsItems.length -1);
-
-    console.log("submit")
-  }
-
   return (
     <Box className="flex flex-col space-y-10 relative">
       <Box className="w-full flex lg:flex-row flex-col space-y-2 justify-between items-center">
@@ -92,13 +81,13 @@ const WizzardForm = () => {
       </Box>
 
       {isLoading && (
-        <LoaderCircleIcon className="animate-spin size-5 self-end absolute top- right-0" />
+        <LoaderCircleIcon className="animate-spin size-5 self-end absolute top-8 right-0" />
       )}
 
       <Stepper />
 
       <Form {...form}>
-        <form onSubmit={handleFormSubmit}>
+        <form>
           <Box className="space-y-8 flex flex-col relative">
             {stepsItems[currentStep].step === 1 && <Step1 />}
             {stepsItems[currentStep].step === 2 && <Step2 />}
@@ -137,7 +126,8 @@ const WizzardForm = () => {
               <Button
                 disabled={isDisabled}
                 className="cursor-pointer"
-                type="submit"
+                type="button"
+                onClick={form.handleSubmit(onSubmit)}
               >
                 Submit
               </Button>

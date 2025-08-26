@@ -4,6 +4,7 @@ import "./globals.css"
 import ReactQueryProvider from "@/providers/react-query"
 import { ThemeProvider } from "@/providers/theme"
 import MainLayout from "@/components/templates/main-layout"
+import { Toaster } from "sonner"
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -29,7 +30,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactQueryProvider>
-            <MainLayout>{children}</MainLayout>
+            <MainLayout>
+              {children}
+              <Toaster />
+            </MainLayout>
           </ReactQueryProvider>
         </ThemeProvider>
       </body>

@@ -1,4 +1,3 @@
-import { Form } from "@/components/atoms/forms"
 import {
   blogSchema,
   BlogSchemaType,
@@ -17,6 +16,9 @@ import {
 } from "react"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { steps as stepItems } from "@/utils/constant"
+import { BlogCategory, BlogRequestBody } from "@/types/blog"
+import { slugify } from "@/utils/string"
+import { useCreateBlog } from "@/services/mutation/blog"
 
 type FormWizzardContextType = {
   form: UseFormReturn<BlogSchemaType>
@@ -48,16 +50,52 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
     mode: "onChange",
   })
 
-  const onSubmit = (values: BlogSchemaType) => {
-    console.log(values)
+  const { mutateAsync, isPending, isSuccess } = useCreateBlog()
 
-    console.log(currentStep)
+  const isLoading = form.formState.isValidating || isPending
+  const isDisabled = form.formState.isSubmitting || isPending
 
-    console.log("submit")
+  const onSubmit = async (values: BlogSchemaType) => {
+    try {
+      setSteps((prev) => ({
+        ...prev,
+        [4]: {
+          ...prev[4],
+          isCompleted: true,
+          isCurrentStep: false,
+        },
+      }))
+
+      const { title, author, category, content, summary, slug } = values
+
+      const currentDate = Date.now()
+
+      const body: BlogRequestBody = {
+        title,
+        slug: slug ?? slugify(title),
+        content,
+        author,
+        category: category as BlogCategory,
+        summary,
+        createdAt: currentDate,
+        publishedAt: currentDate,
+      }
+
+      await mutateAsync(body)
+
+      if (isSuccess) localStorage.setItem("blogForm", JSON.stringify(body))
+    } catch (error) {
+      console.error(error)
+      setSteps((prev) => ({
+        ...prev,
+        [4]: {
+          ...prev[4],
+          isCompleted: false,
+          isCurrentStep: true,
+        },
+      }))
+    }
   }
-
-  const isLoading = form.formState.isValidating
-  const isDisabled = form.formState.isSubmitting
 
   return (
     <FormWizzardContext.Provider

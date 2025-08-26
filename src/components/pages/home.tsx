@@ -1,3 +1,5 @@
+"use client"
+
 import Container from "@/components/molecules/container"
 import { Button } from "@/components/atoms/button"
 import Link from "next/link"
@@ -5,9 +7,15 @@ import { ChevronRight } from "lucide-react"
 import BlogCard from "@/components/organisms/blog-card"
 import Box from "@/components/atoms/box"
 import Typography from "@/components/atoms/typography"
-import { blogs } from "@/utils/constant"
+import { useBlogs } from "@/services/queries/blog"
 
 const Home = () => {
+  const { data: blogs } = useBlogs()
+
+  if (!blogs) {
+    return <></>
+  }
+
   return (
     <Container id="article-highlight" as="section" className="mt-10 w-full">
       <Box className="flex justify-between">
@@ -24,7 +32,6 @@ const Home = () => {
 
       <Box className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {blogs
-          .filter((blog) => blog.publishedAt != null)
           .sort((a, b) => {
             if (!a.publishedAt) return 1
             if (!b.publishedAt) return -1

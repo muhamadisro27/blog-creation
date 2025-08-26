@@ -1,3 +1,5 @@
+"use client"
+
 import Container from "@/components/molecules/container"
 import Typography from "@/components/atoms/typography"
 import Box from "@/components/atoms/box"
@@ -5,8 +7,11 @@ import { Button } from "@/components/atoms/button"
 import Link from "next/link"
 import { ChevronLeft, FilePlus2 } from "lucide-react"
 import BlogList from "@/components/organisms/blog-list"
+import { useBlogs } from "@/services/queries/blog"
 
 const Blog = () => {
+  const { data: blogs } = useBlogs()
+
   return (
     <Container id="blog" className="mt-10 w-full space-y-5">
       <Box className="w-full flex justify-between items-center">
@@ -31,7 +36,7 @@ const Blog = () => {
       </Box>
 
       <Box as="section" className="space-y-2">
-        <BlogList />
+        <BlogList blogs={blogs ?? []} />
       </Box>
     </Container>
   )
