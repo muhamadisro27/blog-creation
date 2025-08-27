@@ -11,6 +11,7 @@ import { Form } from "@/components/atoms/forms"
 import StepContent from "./step-content"
 import StepNavigator from "./step-navigator"
 import { BlogSchemaType } from "@/schemas/blog-schema"
+import { useMemo } from "react"
 
 const WizzardForm = () => {
   const {
@@ -24,7 +25,7 @@ const WizzardForm = () => {
     setCurrentStep,
   } = useFormWizzard()
 
-  const stepsItems = Object.values(steps)
+  const stepsItems = useMemo(() => Object.values(steps), [steps])
 
   const nextStep = async () => {
     const valid = await form.trigger(stepsItems[currentStep].fields)
