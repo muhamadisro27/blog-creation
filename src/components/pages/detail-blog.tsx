@@ -75,7 +75,7 @@ const DetailBlog: FC<DetailBlogProps> = ({ slug }) => {
           </Box>
         </CardHeader>
         <CardContent>
-          <Typography className="text-justify text-xs md:text-sm leading-7">
+          <Typography className="text-justify text-xs md:text-sm leading-7 break-words whitespace-pre-line">
             {blog?.content}
           </Typography>
         </CardContent>
