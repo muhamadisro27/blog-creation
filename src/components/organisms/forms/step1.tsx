@@ -36,7 +36,7 @@ const Step1 = () => {
             <div className="relative w-full space-y-2">
               <FormControl>
                 <Input
-                  className="text-xs placeholder:text-[#78829D]"
+                  className="text-sm placeholder:text-[#78829D]"
                   placeholder="Enter title blog"
                   {...field}
                 />
@@ -57,7 +57,7 @@ const Step1 = () => {
               <FormControl>
                 <Input
                   disabled
-                  className="text-xs placeholder:text-[#78829D]"
+                  className="text-sm placeholder:text-[#78829D]"
                   {...field}
                 />
               </FormControl>
@@ -82,7 +82,7 @@ const Step1 = () => {
             <div className="relative w-full space-y-2">
               <FormControl>
                 <Input
-                  className="text-xs placeholder:text-[#78829D]"
+                  className="text-sm placeholder:text-[#78829D]"
                   placeholder="Enter author blog"
                   {...field}
                 />
