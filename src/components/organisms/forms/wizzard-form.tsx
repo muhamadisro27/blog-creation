@@ -6,7 +6,7 @@ import { useFormWizzard } from "@/providers/form-wizzard"
 import { Button } from "@/components/atoms/button"
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react"
 import Link from "next/link"
-import BreadcrumbArticle from "@/components/organisms/breadcrumb-article"
+import Breadcrumb from "@/components/organisms/breadcrumb-article"
 import { Form } from "@/components/atoms/forms"
 import StepContent from "./step-content"
 import StepNavigator from "./step-navigator"
@@ -76,7 +76,7 @@ const WizzardForm = () => {
           </Link>
         </Button>
 
-        <BreadcrumbArticle lastItem={"Create"} />
+        <Breadcrumb lastItem={"Create"} />
       </Box>
 
       {isLoading && (

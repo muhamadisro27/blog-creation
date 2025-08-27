@@ -1,6 +1,7 @@
 import Box from "@/components/atoms/box"
 import Typography from "@/components/atoms/typography"
 import { Card, CardContent, CardHeader } from "@/components/molecules/card"
+import TextToggle from "@/components/molecules/text-toggle"
 import { useFormWizzard } from "@/providers/form-wizzard"
 import { steps } from "@/utils/constant"
 import { mapBlogDataToSteps } from "@/utils/string"
@@ -23,7 +24,7 @@ const Step4 = () => {
         Review your Blog Post
       </Typography>
 
-      <Box className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.values(reviews).map((item) => (
           <Card key={item.step} className="rounded-2xl shadow-md border">
             <CardHeader>
@@ -34,14 +35,8 @@ const Step4 = () => {
             <CardContent className="space-y-4">
               {Object.entries(item.data).map(([key, value]) => (
                 <Box key={key} className="space-y-1 grid grid-cols-2">
-                  <Typography className="text-sm  capitalize">
-                    {key}
-                  </Typography>
-                  <Typography className="text-sm break-words">
-                    {value || (
-                      <span className="italic ">—</span>
-                    )}
-                  </Typography>
+                  <Typography className="text-sm capitalize">{key}</Typography>
+                  <TextToggle text={value} maxLength={200} />
                 </Box>
               ))}
             </CardContent>
