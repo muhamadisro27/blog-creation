@@ -5,12 +5,12 @@ import Box from "@/components/atoms/box"
 import { Button } from "@/components/atoms/button"
 import { ChevronLeft } from "lucide-react"
 import Link from "next/link"
-import BreadcrumbArticle from "@/components/organisms/breadcrumb-article"
+import Breadcrumb from "@/components/organisms/breadcrumb-article"
 import Typography from "@/components/atoms/typography"
 import { Card, CardContent, CardHeader } from "@/components/molecules/card"
 import { formatDateTime } from "@/utils/date"
 import { useBlog } from "@/services/queries/blog"
-import { Badge } from "../molecules/badge"
+import { Badge } from "@/components/molecules/badge"
 
 type DetailBlogProps = {
   slug: string
@@ -30,7 +30,7 @@ const DetailBlog: FC<DetailBlogProps> = ({ slug }) => {
             </Link>
           </Button>
 
-          <BreadcrumbArticle lastItem={slug} />
+          <Breadcrumb lastItem={slug} />
         </Box>
 
         <Box className="w-full m-auto min-h-100 flex flex-col justify-center items-center">
@@ -52,7 +52,7 @@ const DetailBlog: FC<DetailBlogProps> = ({ slug }) => {
           </Link>
         </Button>
 
-        <BreadcrumbArticle lastItem={slug} />
+        <Breadcrumb lastItem={slug} />
       </Box>
 
       <Card className="transition-all group-hover:shadow-md mt-7 flex flex-col">

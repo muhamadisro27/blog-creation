@@ -1,6 +1,6 @@
 import Link from "next/link"
 import {
-  Breadcrumb,
+  Breadcrumb as BreadcrumbShadCN,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
@@ -9,13 +9,13 @@ import {
 import { ChevronRightIcon } from "lucide-react"
 import { ComponentPropsWithoutRef, FC } from "react"
 
-type BreadcrumbArticleProps = {
+type BreadcrumbProps = {
   lastItem?: string
-} & ComponentPropsWithoutRef<typeof Breadcrumb>
+} & ComponentPropsWithoutRef<typeof BreadcrumbShadCN>
 
-const BreadcrumbArticle: FC<BreadcrumbArticleProps> = ({ lastItem, ...props }) => {
+const Breadcrumb: FC<BreadcrumbProps> = ({ lastItem, ...props }) => {
   return (
-    <Breadcrumb {...props}>
+    <BreadcrumbShadCN {...props}>
       <BreadcrumbList>
         <BreadcrumbItem className="text-gray-800 dark:text-gray-300 ">
           <BreadcrumbLink asChild>
@@ -39,8 +39,8 @@ const BreadcrumbArticle: FC<BreadcrumbArticleProps> = ({ lastItem, ...props }) =
           </>
         )}
       </BreadcrumbList>
-    </Breadcrumb>
+    </BreadcrumbShadCN>
   )
 }
 
-export default BreadcrumbArticle
+export default Breadcrumb
