@@ -15,7 +15,7 @@ const Blog = () => {
 
   return (
     <Container id="blog" className="mt-2 w-full space-y-5">
-      <Box className="w-full flex flex-col xl:flex-row justify-between items-center">
+      <Box className="w-full flex flex-col md:flex-row justify-between items-center">
         <Button variant={"link"} asChild>
           <Link href={"/"}>
             <ChevronLeft />
@@ -26,7 +26,7 @@ const Blog = () => {
 
       <Box
         as="section"
-        className="w-full flex flex-col space-y-3 xl:flex-row items-center justify-between"
+        className="w-full flex flex-col space-y-3 md:flex-row items-center justify-between"
       >
         <Typography as="h3" className="xl:text-xl text-lg">
           Explore Blogs
