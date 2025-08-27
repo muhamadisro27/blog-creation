@@ -1,17 +1,16 @@
 "use client"
+
 import Box from "@/components/atoms/box"
 import { Stepper } from "@/components/molecules/stepper"
 import { useFormWizzard } from "@/providers/form-wizzard"
 import { Button } from "@/components/atoms/button"
-import Step1 from "./step1"
-import clsx from "clsx"
-import Step2 from "./step2"
-import Step3 from "./step3"
-import Step4 from "./step4"
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react"
 import Link from "next/link"
 import BreadcrumbArticle from "@/components/organisms/breadcrumb-article"
 import { Form } from "@/components/atoms/forms"
+import StepContent from "./step-content"
+import StepNavigator from "./step-navigator"
+import { BlogSchemaType } from "@/schemas/blog-schema"
 
 const WizzardForm = () => {
   const {
@@ -88,51 +87,17 @@ const WizzardForm = () => {
 
       <Form {...form}>
         <form>
-          <Box className="space-y-8 flex flex-col relative">
-            {stepsItems[currentStep].step === 1 && <Step1 />}
-            {stepsItems[currentStep].step === 2 && <Step2 />}
-            {stepsItems[currentStep].step === 3 && <Step3 />}
-            {stepsItems[currentStep].step === 4 && <Step4 />}
-          </Box>
+          <StepContent steps={stepsItems} currentStep={currentStep} />
 
-          <Box
-            className={clsx(
-              "flex mt-4 w-full",
-              stepsItems[currentStep].step === 1
-                ? "justify-end"
-                : "justify-between"
-            )}
-          >
-            {currentStep > 0 && (
-              <Button
-                disabled={isDisabled}
-                className="cursor-pointer"
-                type="button"
-                onClick={prevStep}
-              >
-                Back
-              </Button>
-            )}
-            {currentStep < stepsItems.length - 1 ? (
-              <Button
-                disabled={isDisabled}
-                className="cursor-pointer"
-                type="button"
-                onClick={nextStep}
-              >
-                Next
-              </Button>
-            ) : (
-              <Button
-                disabled={isDisabled}
-                className="cursor-pointer"
-                type="button"
-                onClick={form.handleSubmit(onSubmit)}
-              >
-                Submit
-              </Button>
-            )}
-          </Box>
+          <StepNavigator<BlogSchemaType>
+            currentStep={currentStep}
+            stepsLength={stepsItems.length}
+            isDisabled={isDisabled}
+            form={form}
+            onNext={nextStep}
+            onPrev={prevStep}
+            onSubmit={onSubmit}
+          />
         </form>
       </Form>
     </Box>
