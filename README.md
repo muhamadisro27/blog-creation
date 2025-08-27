@@ -1,5 +1,5 @@
 
-## Getting Started
+## How to run the development server
 
 First, Install dependencies:
 
