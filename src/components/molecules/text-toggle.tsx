@@ -21,7 +21,7 @@ const TextToggle: FC<TextToggleProps> = ({ text, maxLength = 100 }) => {
     isExpanded || !shouldTruncate ? text : text.slice(0, maxLength) + "..."
 
   return (
-    <Typography as="span" className="text-sm break-words">
+    <Typography as="span" className="text-xs md:text-sm break-words">
       {displayText}
       {shouldTruncate && (
         <Typography
