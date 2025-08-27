@@ -26,7 +26,7 @@ const Step3 = () => {
             <div className="relative w-full space-y-2">
               <FormControl>
                 <Textarea
-                  className="text-sm placeholder:text-[#78829D]"
+                  className="text-sm"
                   placeholder="Enter content blog"
                   {...field}
                 />

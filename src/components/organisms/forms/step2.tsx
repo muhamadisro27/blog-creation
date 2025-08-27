@@ -35,7 +35,7 @@ const Step2 = () => {
             <div className="relative w-full space-y-2">
               <FormControl>
                 <Textarea
-                  className="text-sm placeholder:text-[#78829D]"
+                  className="text-sm"
                   placeholder="Enter summary blog"
                   {...field}
                 />
@@ -64,7 +64,7 @@ const Step2 = () => {
                   <SelectTrigger
                     id={categoryId}
                     className={cn(
-                      "w-full",
+                      "w-full cursor-pointer",
                       fieldState.error ? "border-destructive" : ""
                     )}
                   >
@@ -76,7 +76,7 @@ const Step2 = () => {
                   <SelectContent>
                     {Object.values(blog_categories).map((category) => (
                       <SelectItem
-                        className="text-sm"
+                        className="text-sm cursor-pointer"
                         key={category.value}
                         value={category.value}
                       >
