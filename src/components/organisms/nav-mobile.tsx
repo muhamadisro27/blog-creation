@@ -2,8 +2,8 @@
 import Box from "@/components/atoms/box"
 import { AlignJustify, X } from "lucide-react"
 import { useState } from "react"
-import NavLink from "../molecules/nav-link"
-import { ModeToggle } from "../molecules/mode"
+import NavLink from "@/components/molecules/nav-link"
+import { ModeToggle } from "@/components/molecules/mode"
 
 const NavMobile = () => {
   const [openMenu, setOpenMenu] = useState(false)
