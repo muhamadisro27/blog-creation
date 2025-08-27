@@ -16,11 +16,12 @@ import {
 import { Textarea } from "@/components/molecules/textarea"
 import { BlogSchemaType } from "@/schemas/blog-schema"
 import { blog_categories } from "@/utils/constant"
+import { useId } from "react"
 import { useFormContext } from "react-hook-form"
 
 const Step2 = () => {
   const { control } = useFormContext<BlogSchemaType>()
-
+  const categoryId = useId()
   return (
     <>
       <FormField
@@ -33,7 +34,7 @@ const Step2 = () => {
             <div className="relative w-full space-y-2">
               <FormControl>
                 <Textarea
-                  className="text-xs placeholder:text-[#78829D]"
+                  className="text-sm placeholder:text-[#78829D]"
                   placeholder="Enter summary blog"
                   {...field}
                 />
@@ -49,7 +50,7 @@ const Step2 = () => {
       <FormField
         render={({ field }) => (
           <FormItem>
-            <FormLabel>
+            <FormLabel htmlFor={categoryId}>
               Category
               <FormRequired />
             </FormLabel>
@@ -59,7 +60,7 @@ const Step2 = () => {
                   defaultValue={field.value}
                   onValueChange={field.onChange}
                 >
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger id={categoryId} className="w-full">
                     <SelectValue
                       className="text-xs"
                       placeholder="Select category"
