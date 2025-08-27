@@ -17,9 +17,9 @@ const Step3 = () => {
   return (
     <>
       <FormField
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>
+            <FormLabel isError={Boolean(fieldState.error)}>
               Content
               <FormRequired />
             </FormLabel>

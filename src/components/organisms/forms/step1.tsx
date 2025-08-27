@@ -27,9 +27,9 @@ const Step1 = () => {
   return (
     <>
       <FormField
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>
+            <FormLabel isError={Boolean(fieldState.error)}>
               Title
               <FormRequired />
             </FormLabel>
@@ -50,9 +50,9 @@ const Step1 = () => {
       />
 
       <FormField
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>Slug</FormLabel>
+            <FormLabel isError={Boolean(fieldState.error)}>Slug</FormLabel>
             <div className="relative w-full space-y-2">
               <FormControl>
                 <Input
@@ -73,9 +73,9 @@ const Step1 = () => {
       />
 
       <FormField
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>
+            <FormLabel isError={Boolean(fieldState.error)}>
               Author
               <FormRequired />
             </FormLabel>

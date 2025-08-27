@@ -22,15 +22,16 @@ const WizzardForm = () => {
     isLoading,
     onSubmit,
     setSteps,
+    validateStep,
     setCurrentStep,
   } = useFormWizzard()
 
   const stepsItems = useMemo(() => Object.values(steps), [steps])
 
   const nextStep = async () => {
-    const valid = await form.trigger(stepsItems[currentStep].fields)
+    const isValid = await validateStep(currentStep)
 
-    if (!valid) return
+    if (!isValid) return
 
     setCurrentStep((prev) => Math.min(prev + 1, stepsItems.length - 1))
 
@@ -38,7 +39,7 @@ const WizzardForm = () => {
       ...prev,
       [currentStep + 1]: {
         ...prev[currentStep + 1],
-        isCompleted: valid,
+        isCompleted: isValid,
         isCurrentStep: false,
       },
       [currentStep + 2]: {

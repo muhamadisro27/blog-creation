@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/molecules/select"
 import { Textarea } from "@/components/molecules/textarea"
+import { cn } from "@/lib/utils"
 import { BlogSchemaType } from "@/schemas/blog-schema"
 import { blog_categories } from "@/utils/constant"
 import { useId } from "react"
@@ -25,9 +26,9 @@ const Step2 = () => {
   return (
     <>
       <FormField
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>
+            <FormLabel isError={Boolean(fieldState.error)}>
               Summary
               <FormRequired />
             </FormLabel>
@@ -48,9 +49,9 @@ const Step2 = () => {
       />
 
       <FormField
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel htmlFor={categoryId}>
+            <FormLabel isError={Boolean(fieldState.error)} htmlFor={categoryId}>
               Category
               <FormRequired />
             </FormLabel>
@@ -60,7 +61,13 @@ const Step2 = () => {
                   defaultValue={field.value}
                   onValueChange={field.onChange}
                 >
-                  <SelectTrigger id={categoryId} className="w-full">
+                  <SelectTrigger
+                    id={categoryId}
+                    className={cn(
+                      "w-full",
+                      fieldState.error ? "border-destructive" : ""
+                    )}
+                  >
                     <SelectValue
                       className="text-xs"
                       placeholder="Select category"

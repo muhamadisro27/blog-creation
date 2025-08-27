@@ -1,26 +1,22 @@
 import {
-  blogSchema,
-  BlogSchemaType,
-  defaultValues,
-} from "@/schemas/blog-schema"
-import { StepItemMap } from "@/types/common"
-import { zodResolver } from "@hookform/resolvers/zod"
-import {
   createContext,
+  useContext,
+  useState,
+  useMemo,
+  useCallback,
   Dispatch,
+  SetStateAction,
   FC,
   ReactNode,
-  SetStateAction,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
 } from "react"
-import { useForm, UseFormReturn } from "react-hook-form"
+import { UseFormReturn } from "react-hook-form"
+import { BlogSchemaType } from "@/schemas/blog-schema"
+import { StepItemMap } from "@/types/common"
 import { steps as stepItems } from "@/utils/constant"
-import { BlogCategory, BlogRequestBody } from "@/types/blog"
-import { slugify } from "@/utils/string"
 import { useCreateBlog } from "@/services/mutation/blog"
+import { slugify } from "@/utils/string"
+import { BlogCategory, BlogRequestBody } from "@/types/blog"
+import { useBlogForm } from "@/hooks/use-blog-form"
 
 type FormWizzardContextType = {
   form: UseFormReturn<BlogSchemaType>
@@ -28,30 +24,22 @@ type FormWizzardContextType = {
   isDisabled: boolean
   isLoading: boolean
   steps: StepItemMap
+  validateStep: (stepIndex: number) => Promise<boolean>
   setSteps: Dispatch<SetStateAction<StepItemMap>>
   setCurrentStep: Dispatch<SetStateAction<number>>
   onSubmit: (values: BlogSchemaType) => void
 }
 
-export const FormWizzardContext = createContext<
-  FormWizzardContextType | undefined
->(undefined)
+const FormWizzardContext = createContext<FormWizzardContextType | undefined>(
+  undefined
+)
 
-type FormWizzardProviderType = {
-  children: ReactNode
-}
-
-export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
+export const FormWizzardProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const { form, validateStep } = useBlogForm()
   const [currentStep, setCurrentStep] = useState(0)
   const [steps, setSteps] = useState<StepItemMap>(stepItems)
-  const form = useForm<BlogSchemaType>({
-    resolver: zodResolver(blogSchema),
-    defaultValues,
-    mode: "onChange",
-  })
-
   const { mutateAsync, isPending, isSuccess } = useCreateBlog()
 
   const isLoading = form.formState.isValidating || isPending
@@ -70,7 +58,6 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
         }))
 
         const { title, author, category, content, summary, slug } = values
-
         const currentDate = Date.now()
 
         const body: BlogRequestBody = {
@@ -102,13 +89,14 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
     [mutateAsync, isSuccess]
   )
 
-  const contextMenu = useMemo(
+  const value = useMemo(
     () => ({
       form,
       currentStep,
       isDisabled,
       isLoading,
       steps,
+      validateStep,
       setSteps,
       setCurrentStep,
       onSubmit,
@@ -119,6 +107,7 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
       isDisabled,
       isLoading,
       steps,
+      validateStep,
       setSteps,
       setCurrentStep,
       onSubmit,
@@ -126,7 +115,7 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
   )
 
   return (
-    <FormWizzardContext.Provider value={contextMenu}>
+    <FormWizzardContext.Provider value={value}>
       {children}
     </FormWizzardContext.Provider>
   )
@@ -134,10 +123,7 @@ export const FormWizzardProvider: FC<FormWizzardProviderType> = ({
 
 export const useFormWizzard = () => {
   const context = useContext(FormWizzardContext)
-
-  if (!context) {
+  if (!context)
     throw new Error("useFormWizzard must be used within FormWizzardProvider")
-  }
-
   return context
 }
