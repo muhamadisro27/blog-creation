@@ -13,11 +13,11 @@ export const blogSchema = z.object({
   summary: z
     .string()
     .min(3, { message: "Summary minimum is 3 characters." })
-    .max(50, { message: "Summary maximum is 50 characters." }),
+    .max(200, { message: "Summary maximum is 200 characters." }),
   content: z
     .string()
-    .min(3, { message: "Content minimum is 3 characters." })
-    .max(50, { message: "Content maximum is 50 characters." }),
+    .min(100, { message: "Content minimum is 100 characters." })
+    .max(2000, { message: "Content maximum is 2000 characters." }),
   category: z
     .string({
       message: "Category is required",
